@@ -47,3 +47,12 @@ class Icon(BrowserView):
                                         to_ascii(str(len(self.image))))
         retval = self.image
         return retval
+
+
+class IconViewlet(object):
+    def __init__(self, context, request, view, manager):
+        self.__parent__ = self.view = view
+        self.__updated = False
+        self.context = context
+        self.request = request
+        self.manager = manager

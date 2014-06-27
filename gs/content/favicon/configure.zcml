@@ -19,7 +19,7 @@
   <browser:viewlet
     name="gs-content-favicon"
     manager="gs.content.layout.interfaces.IFavicon"
-    class="gs.viewlet.SiteViewlet"
+    class=".icon.IconViewlet"
     template="browser/templates/favicon.pt"
     permission="zope2.Public"
     weight="10"
