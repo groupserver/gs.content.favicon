@@ -1,0 +1,6 @@
+{
+  "venv": "/opt/groupserver/bin/python", 
+  "name": "gs.content.favicon", 
+  "license": "Other Open Source", 
+  "description": "The favicon for GroupServer"
+}

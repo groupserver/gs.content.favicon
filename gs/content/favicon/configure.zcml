@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright © 2014 OnlineGroups.net and Contributors. -->
+<!-- All Rights Reserved. -->
+
+<!-- This software is subject to the provisions of the Zope Public -->
+<!-- License, Version 2.1 (ZPL).  A copy of the ZPL should accompany this -->
+<!-- distribution. -->
+
+<!-- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED -->
+<!-- WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED -->
+<!-- WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND -->
+<!-- FITNESS FOR A PARTICULAR PURPOSE. -->
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+  <include package="zope.viewlet" file="meta.zcml" />
+
+  <!-- The favicons. Note the plural. -->
+  <browser:viewlet
+    name="gs-content-favicon"
+    manager="gs.content.layout.interfaces.IFavicon"
+    class="gs.viewlet.SiteViewlet"
+    template="browser/templates/favicon.pt"
+    permission="zope2.Public"
+    weight="10"
+    title="Standard Favicon" />
+  <browser:resourceDirectory
+    name="favicon-20140624a"
+    directory="browser/images/"
+    permission="zope.Public" />
+
+</configure>

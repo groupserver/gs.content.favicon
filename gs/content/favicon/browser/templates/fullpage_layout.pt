@@ -1,0 +1,110 @@
+<metal:macro
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="gs.content.layout"
+  define-macro="page"><tal:doctype replace="structure string:&lt;!DOCTYPE html&gt;" />
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      tal:define="ap view/request/AUTHENTICATION_PATH | nothing;
+                  hasSkin python:ap and (ap[:6] == '++skin');
+                  skin python:ap.split('/')[0] if hasSkin else '';
+                  url view/request/URL;
+                  u1 view/request/URL1 | url;
+                  urlSansPage string:${u1}/;
+                  urlSansProtocol python:':'.join(urlSansPage.split(':')[1:]);"
+      tal:attributes="data-skin skin; data-url url;
+                      data-url-sans-page urlSansPage">
+  <head>
+    <base tal:attributes="href urlSansProtocol" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <metal:block define-slot="title" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <tal:block  metal:define-slot="metadata-global"
+      tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      &#160;
+    </tal:block>
+
+    <link rel="home" href="/"
+      tal:attributes="title string:${view/siteInfo/name} Home;"/>
+    <link rel="help" href="/help"
+      tal:attributes="title string:${view/siteInfo/name} Help;"/>
+    <tal:block  metal:define-slot="metadata" />
+    <tal:block content="structure provider:groupserver.Favicon">
+      The favicon goes here.
+    </tal:block>
+    <!-- styling typically covering all sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++globalstyle-20140305.css" />
+    <!-- styling just covering local customisations to sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++site-20140515.css" />
+    <metal:block define-slot="style" />
+  </head>
+  <body tal:define="siteName view/siteInfo/name | nothing;
+                    u string:unknown;
+                    p request/URLPATH1 | u;"
+    tal:attributes="id python:'page-%s' % p.strip('/').replace('/','_');">
+    <div id="toparea" role="banner">
+      <div id="titlebar">
+        <a id="titlebar-home-link" href="/"><span class="logo"> </span>
+        <span class="site" tal:content="siteName">Site Name</span></a>
+        <tal:block
+          metal:define-slot="utilitylinks"
+          content="structure provider:groupserver.UtilityLinks">
+          The utility links go here.
+        </tal:block>
+      </div><!--titlebar-->
+    </div><!--toparea-->
+    <div id="gs-content-layout-body">
+      <div id="bodyblock">
+        <div id="breadcrumbs" class="muted small" role="navigation">
+          <metal:block define-slot="breadcrumb"> </metal:block>
+        </div><!--breadcrumbs-->
+        <metal:block define-slot="messages"> </metal:block><!--messages-->
+        <metal:block metal:define-slot="pagetitle"/>
+        <div id="notifications" metal:define-slot="notifications"
+             tal:define="notifications context/notifications | nothing"
+             tal:condition="notifications">
+          <tal:block
+            repeat="notification python:notifications.objectValues()">
+            <p tal:replace="structure python:notification(method='html')">
+              You Maniacs!
+              You blew it up!
+              Ah, <strong>damn you!</strong>
+              God damn you all to <strong>Hell!</strong>
+            </p>
+          </tal:block>
+        </div><!--notifications-->
+        <metal:block define-slot="body" />
+      </div><!--bodyblock-->
+    </div><!--gs-content-layout-body-->
+    <div id="gs-content-layout-footer">
+      <div id="gs-content-layout-footer-content">
+        <metal:block
+          define-slot="footer"
+          tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')"> </metal:block>
+      </div><!--gs-content-layout-footer-content-->
+    </div><!--gs-content-layout-footer-->
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-loader-min-20140313.js"> </script>
+    <script type="text/javascript"
+            src="/++resource++jquery-1.9.1.min.js"> </script>
+    <script type="text/javascript" defer="defer"
+            src="/++resource++bootstrap-2.3.2/js/bootstrap.min.js"> </script>
+    <metal:block define-slot="javascript" />
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-disclosure-min-20140313.js"
+            defer="defer"> </script>
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-required-min-20140313.js"
+            defer="defer"> </script>
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-submit-min-20140313.js"
+            defer="defer"> </script>
+  </body>
+</html>
+</metal:macro>
