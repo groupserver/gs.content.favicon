@@ -24,7 +24,7 @@ with codecs.open('README.txt', encoding='utf-8') as f:
 with codecs.open(os.path.join("docs", "HISTORY.txt"), encoding='utf-8') as f:
     long_description += '\n' + f.read()
 
-setup(name='gs.content.faviocn',
+setup(name='gs.content.favicon',
     version=version,
     description="The favicon for  GroupServer pages.",
     long_description=long_description,
@@ -40,7 +40,7 @@ setup(name='gs.content.faviocn',
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
       ],
-    keywords='groupserver, icon, faviocn',
+    keywords='groupserver, icon, favicon, shortuct icon, webpage icon',
     author='Michael JasonSmith',
     author_email='mpj17@onlinegroups.net',
     url='https://source.iopen.net/groupserver/gs.content.favicon',
@@ -51,9 +51,13 @@ setup(name='gs.content.faviocn',
     zip_safe=False,
     install_requires=[
         'setuptools',
-        'zope.browserpage',  # For the <browser:page config.
-        'zope.browserresource',  # For the <browser:resource config.
+        'zope.browserpage',  # For the <browser:page config
+        'zope.browserresource',  # For the <browser:resource config
+        'zope.cachedescriptors',
+        # NOTE: no zope.tal or zope.tales
+        'Zope2',
         'gs.content.layout',  # For the viewlet manager
+        'gs.core',  # For the to_ascii function
     ],
     entry_points="""
     # -*- Entry points: -*-
