@@ -18,24 +18,44 @@ Introduction
 
 This product defines the *favicon* (also known as *favourite*
 *icon,* *page icon,* *webpage icon,* and *shortcut icon*) for
-GroupServer.
-
-It provides a `resource directory`_. a viewlet_, and a page_ —
-all of which contain `the icon`_ itself.
+GroupServer. It provides a `resource directory`_, a viewlet_, and
+a page_ — all of which contain `the icon`_ itself.
 
 Resource directory
 ==================
 
 The resource directory ``favicon-20140624a`` provides the favicon
-at different sizes, including an SVG version.
+at different sizes, including an SVG version. It maps onto the
+``browser/images`` folder in this product.
 
 Viewlet
 =======
 
 The viewlet ``gs-content-favicon`` viewlet slots into the
 ``gs.content.layout.interfaces.IFavicon`` viewlet manager. It
-provides ``<link>`` and ``<meta>`` elements for the favicon,
-Apple iOS touch icons, and Microsoft Windows 8 badges.
+provides the elements necessary to link to the favicon from all
+HTML pages.
+
+HTML 5:
+  Two ``<link>`` elements with ``rel="icon"`` attributes::
+
+    <link rel="icon" sizes="any" type="image/svg+xml"
+          href="/++resource++favicon-20140624a/gs-logo.svg" />
+    <link rel="icon" sizes="256x256" type="image/png"
+          href="/++resource++favicon-20140624a/gs-logo-256x256.png" />
+
+Apple iOS:
+  One ``<link>`` element, with ``rel="apple-touch-icon"``::
+
+    <link rel="apple-touch-icon" sizes="152x152" type="image/png"
+          href="/++resource++favicon-20140624a/gs-logo-152x152.png" />
+
+Microsoft Windows 8:
+  Two ``<meta>`` elements for the *badge* (or *tile*)::
+
+    <meta name="msapplication-TileColor" content="#CCCCCC" />
+    <meta name="msapplication-TileImage"
+          content="/++resource++favicon-20140624a/gs-logo-144x144.png" />
 
 Page
 ====
@@ -52,15 +72,16 @@ The icon
 ========
 
 The icon itself is an interlocking GS, in Helvetica, with the
-descender on the ``G`` removed. It was created in Inkscape, and
-the Inkscape SVG file is provided by ``gs-logo-orig.svg``.
+descender on the ``G`` removed. It was created in Inkscape; the
+original Inkscape SVG file is ``gs-logo-orig.svg``, in the same
+``browser/images`` directory as the other versions of the icon.
 
 Acknowledgements
 ================
 
 Thanks to Audrey Roy for the wonderful `favicon-cheat-sheet`_.
 
-.. favicon-cheat-sheet: https://github.com/audreyr/favicon-cheat-sheet
+.. _favicon-cheat-sheet: https://github.com/audreyr/favicon-cheat-sheet
 
 Resources
 =========
