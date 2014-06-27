@@ -28,5 +28,11 @@
     name="favicon-20140624a"
     directory="browser/images/"
     permission="zope.Public" />
+  <!--The actual favicon.ico icon-->
+  <browser:page
+    name="favicon.ico"
+    for="Products.GSContent.interfaces.IGSSiteFolder"
+    class=".icon.Icon"
+    permission="zope.Public" />
 
 </configure>
