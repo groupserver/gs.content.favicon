@@ -20,7 +20,7 @@ from gs.core import to_ascii
 
 
 class Icon(BrowserView):
-    iconName = b'browser/images/favicon.ico'  # get_data actually wants '/'
+    iconName = 'browser/images/favicon.ico'  # get_data actually wants '/'
 
     def __init__(self, context, request):
         super(Icon, self).__init__(context, request)
