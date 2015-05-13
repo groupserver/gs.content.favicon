@@ -7,7 +7,7 @@ The ``favicon`` for GroupServer
 
 :Authors: `Michael JasonSmith`_
 :Contact: Michael JasonSmith <mpj17@onlinegroups.net>
-:Date: 2014-06-27
+:Date: 2015-05-13
 :Organization: `GroupServer.org`_
 :Copyright: This document is licensed under a
   `Creative Commons Attribution-Share Alike 4.0 International License`_
@@ -86,7 +86,7 @@ Thanks to Audrey Roy for the wonderful `favicon-cheat-sheet`_.
 Resources
 =========
 
-- Code repository: https://source.iopen.net/groupserver/gs.content.favicon
+- Code repository: https://github.com/groupserver/gs.content.favicon
 - Questions and comments to http://groupserver.org/groups/development
 - Report bugs at https://redmine.iopen.net/projects/groupserver
 
