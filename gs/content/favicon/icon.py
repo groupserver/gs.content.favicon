@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+############################################################################
 #
 # Copyright © 2014 OnlineGroups.net and Contributors.
 # All Rights Reserved.
@@ -11,7 +11,7 @@
 # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 # FOR A PARTICULAR PURPOSE.
 #
-##############################################################################
+############################################################################
 from __future__ import unicode_literals
 from pkgutil import get_data
 from zope.cachedescriptors.property import Lazy
@@ -34,7 +34,8 @@ class Icon(BrowserView):
         return retval
 
     def __call__(self):
-        # TODO: Add the x-sendfile suff
+        # TODO: Add the x-sendfile for uWSGI offloading
+        # http://uwsgi-docs.readthedocs.org/en/latest/articles/OffloadingWebsocketsAndSSE.html#uwsgi-offloading
         # Note that most of the values below are hard-coded, because the image
         # name and type are also hard coded!
         self.request.RESPONSE.setHeader(to_ascii('Content-Disposition'),
