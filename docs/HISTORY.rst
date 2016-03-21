@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0.2 (2016-03-21)
+------------------
+
+* Minifying the SVG version of the icon, thanks to SVGOMG_
+
+.. _SVGOMG: https://jakearchibald.github.io/svgomg/
+
 1.0.1 (2015-05-13)
 ------------------
 
