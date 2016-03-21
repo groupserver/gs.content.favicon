@@ -25,7 +25,7 @@
     weight="10"
     title="Standard Favicon" />
   <browser:resourceDirectory
-    name="favicon-20140624a"
+    name="favicon-20160321"
     directory="browser/images/"
     permission="zope.Public" />
   <!--The actual favicon.ico icon-->
