@@ -1,2 +1,6 @@
 # -*- coding: utf-8 -*-
-# This space deliberately left blank
+#lint:disable
+from icon import Icon
+from icon import IconViewlet
+#lint:enable
+
