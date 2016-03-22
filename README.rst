@@ -24,7 +24,7 @@ a page_ — all of which contain `the icon`_ itself.
 Resource directory
 ==================
 
-The resource directory ``favicon-20140624a`` provides the favicon
+The resource directory ``favicon-20160321`` provides the favicon
 at different sizes, including an SVG version. It maps onto the
 ``browser/images`` folder in this product.
 
