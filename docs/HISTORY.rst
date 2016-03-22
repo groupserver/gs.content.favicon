@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 * Minifying the SVG version of the icon, thanks to SVGOMG_
+* Adding unit tests
 
 .. _SVGOMG: https://jakearchibald.github.io/svgomg/
 

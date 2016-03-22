@@ -63,6 +63,8 @@ setup(
         'gs.content.layout',  # For the viewlet manager
         'gs.core',  # For the to_ascii function
     ],
+    test_suite="{0}.tests.test_all".format(name),
+    tests_require=['mock', ],
     entry_points="""
     # -*- Entry points: -*-
     """,)
