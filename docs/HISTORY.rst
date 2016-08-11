@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.0.3 (2016-08-11)
+------------------
+
+* Fixing the path to one of the favicon images
+* Minifying the PNG versions of the icon, thanks to Zopfli_
+
+.. _Zopfli: https://github.com/google/zopfli
+
 1.0.2 (2016-03-21)
 ------------------
 
@@ -24,4 +32,5 @@ Changelog
 Initial version. Prior to the creation of this product the
 *favicon* was stored in the ZMI.
 
-..  LocalWords:  Changelog favicon ZMI reStructuredText
+..  LocalWords:  Changelog favicon ZMI reStructuredText PNG
+..  LocalWords:  Minifying
